@@ -10,13 +10,13 @@ def post_message(token, channel, text):
         headers={"Authorization": "Bearer "+token},
         data={"channel": channel,"text": text}
     )
-
-myToken = "xoxb-2299093275153-2283423995845-rgoVPLpNoHgHDraYNMr8K9rU"
+ 
+myToken = "xoxb-2299093275153-2283423995845-LithO135bsoglphFJJpWCtOs"
 def dbgout(message):
     """인자로 받은 문자열을 파이썬 셸과 슬랙으로 동시에 출력한다."""
     print(datetime.now().strftime('[%m/%d %H:%M:%S]'), message)
     strbuf = datetime.now().strftime('[%m/%d %H:%M:%S] ') + message
-    post_message(myToken,"#stock", strbuf)
+    post_message(myToken,"#주가분석", strbuf)
 
 def printlog(message, *args):
     """인자로 받은 문자열을 파이썬 셸에 출력한다."""
@@ -191,7 +191,7 @@ def buy_etf(code):
             cpOrder.SetInputValue(2, accFlag[0]) # 상품구분 - 주식 상품 중 첫번째
             cpOrder.SetInputValue(3, code)       # 종목코드
             cpOrder.SetInputValue(4, buy_qty)    # 매수할 수량
-            cpOrder.SetInputValue(7, "2")        # 주문조건 0:기본, 1:IOC, 2:FOK
+            cpOrder.SetInputValue(7, "1")        # 주문조건 0:기본, 1:IOC, 2:FOK
             cpOrder.SetInputValue(8, "12")       # 주문호가 1:보통, 3:시장가
                                                  # 5:조건부, 12:최유리, 13:최우선 
             # 매수 주문 요청
